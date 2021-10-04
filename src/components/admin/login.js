@@ -16,8 +16,11 @@ export function Login() {
 
         if (form.checkValidity()) {
             setValidated(true);
+            console.log(validated);
     
-            loginAdmin(event.currentTarget);
+            setTimeout(() => {
+                loginAdmin(form);
+            })
         }
     }
 
@@ -27,6 +30,7 @@ export function Login() {
 
     return (
         <Form noValidate className="page-content" validated={validated} onSubmit={handleSubmit}>
+            <span>{validated}</span>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" defaultValue="admin@example.com" required />
