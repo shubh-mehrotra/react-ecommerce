@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from './components/common/Header';
+import { Login as AdminLogin } from "./components/admin/login";
+import { Login as CustomerLogin } from "./components/customer/login";
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <div className="box-container">
+          <Header />
+
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/admin/login" component={AdminLogin} />
+            <Route path="/customer/login" component={CustomerLogin} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
+
+const Home = () => (
+    <div className="page-content home-page">
+      <p>Please login here</p>
+      <ul className="login-links">
+        <Link to="/customer/login">As a customer</Link>
+        <Link to="/admin/login">As a admin</Link>
+      </ul>
+    </div>
+)
 
 export default App;

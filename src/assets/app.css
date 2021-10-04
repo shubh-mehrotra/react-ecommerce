@@ -1,0 +1,20 @@
+.box-container {
+    display: grid;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 10vh 90vh;
+}
+
+.box-container > .page-content {
+    padding: 50px;
+    min-width: 500px;
+    margin-top: 20px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.home-page .login-links {
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+}
