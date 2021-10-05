@@ -1,7 +1,8 @@
 import "./App.css";
 import Header from './components/common/Header';
-import { Login as AdminLogin } from "./components/admin/login";
-import { Login as CustomerLogin } from "./components/customer/login";
+import { Login as AdminLogin } from "./components/admin/Login";
+import { Login as CustomerLogin } from "./components/customer/Login";
+import { Dashboard as AdminDashboard } from "./components/admin/Dashboard";
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
 
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/admin/login" component={AdminLogin} />
+            <Route path='/admin/login' component={AdminLogin} />
+            <Route path='/admin/dashboard' component={AdminDashboard} />
             <Route path="/customer/login" component={CustomerLogin} />
           </Switch>
         </div>
