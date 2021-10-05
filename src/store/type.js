@@ -1,1 +1,6 @@
 export const SET_TOAST = "SET_TOAST";
+export const ADD_OR_EDIT_PRODUCT = "ADD_OR_EDIT_PRODUCT";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+export const SET_ADMIN_USER = "SET_ADMIN_USER";
+export const SET_CUSTOMER_USER = "SET_CUSTOMER_USER";
+export const SET_GLOBAL_DETAILS = "SET_GLOBAL_DETAILS";

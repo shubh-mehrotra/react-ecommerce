@@ -11,7 +11,7 @@ export default function Header() {
 
     return (
         <div>
-            <h1 className="mt-4">Welcome to <Link to="/">e-commerce</Link> world!</h1>
+            <h1 className="mt-4 text-center">Welcome to <Link to="/">e-commerce</Link> world!</h1>
 
             <ToastContainer position="top-end" className="p-3">
                 <Toast show={toast != false} onClose={() => dispatch(setToast(false))} bg={toast.type} delay={3000} autohide>

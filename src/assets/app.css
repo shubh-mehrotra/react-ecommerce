@@ -18,3 +18,13 @@
     display: grid;
     grid-template-columns: auto auto;
 }
+
+.card-group .card {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.card-group .card .card-img-top {
+    width: 286px;
+    height: 180px;
+}

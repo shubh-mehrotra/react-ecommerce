@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import { setToast } from "../../store/actions/toastActions";
+import { setAdmin } from "../../store/actions/userActions";
 
 export function Login() {
     const history = useHistory();
     const dispatch = useDispatch();
+    const isAdminLoggedIn = useSelector(state => state.admin);
 
     const [email, setEmail] = useState("admin@example.com");
     const [password, setPassword] = useState("admin123");
 
     useEffect(() => {
-        if (localStorage.getItem("isUserLoggedIn") == "true") {
+        if (isAdminLoggedIn == "true") {
             dispatch(setToast({
                 type: "success",
                 title: "Warning!",
@@ -32,7 +34,7 @@ export function Login() {
                 message: "Kudos! You're logged in."
             }));
 
-            localStorage.setItem("isUserLoggedIn", true);
+            dispatch(setAdmin(true));
 
             history.push("/admin/dashboard");
         } else {
@@ -72,6 +74,8 @@ export function Login() {
 
     return (
         <Form noValidate className="page-content" onSubmit={handleSubmit}>
+            <h3 style={{textAlign: "center"}}>Welcome to the admin panel</h3>
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" value={email} onChange={event => handleInputChange(event, "email")} required />
